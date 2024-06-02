@@ -25,7 +25,7 @@ if [ -n "$REDIS_PASSWORD" ]; then
 fi
 
 if [ -n "$REDIS_MODULE" ]; then
-  DOCKER_RUN_ARGS="$DOCKER_RUN_ARGS --loadmodule $MODULE"
+  DOCKER_RUN_ARGS="$DOCKER_RUN_ARGS --loadmodule $REDIS_MODULE"
 fi
 
 echo "Starting single-node Redis instance: $DOCKER_RUN_ARGS"
