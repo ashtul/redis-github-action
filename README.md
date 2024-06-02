@@ -198,6 +198,32 @@ jobs:
 ```
 
 
+### Loading a module
+Starting in v1.9.0, You can load a module to Redis using the `redis-module` input:
+
+```yaml
+name: Run tests
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        redis-version: [6, 7]
+
+    steps:
+    - name: Start Redis
+      uses: supercharge/redis-github-action@1.7.0
+      with:
+        redis-version: ${{ matrix.redis-version }}
+        redis-module: 'path_to_module.so'
+
+    - name: …
+```
+
+
 ## License
 MIT © [Supercharge](https://superchargejs.com)
 

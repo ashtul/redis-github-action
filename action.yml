@@ -31,6 +31,10 @@ inputs:
     required: false
     type: boolean
     default: false
+  redis-module:
+    description: "Load a Redis module"
+    required: false
+    default: ''
 
 runs:
   using: 'docker'
@@ -42,3 +46,4 @@ runs:
     - ${{ inputs.redis-password }}
     - ${{ inputs.redis-container-name }}
     - ${{ inputs.redis-remove-container }}
+    - ${{ inputs.redis-modules }}

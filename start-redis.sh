@@ -6,6 +6,7 @@ REDIS_PORT=$3
 REDIS_PASSWORD=$4
 REDIS_CONTAINER_NAME=$5
 REDIS_REMOVE_CONTAINER=$6
+REDIS_MODULE=$7
 
 if [ -z "$REDIS_VERSION" ]; then
   echo "Missing Redis version in the [redis-version] input. Received value: $REDIS_VERSION"
@@ -21,6 +22,10 @@ fi
 
 if [ -n "$REDIS_PASSWORD" ]; then
   DOCKER_RUN_ARGS="$DOCKER_RUN_ARGS redis-server --requirepass $REDIS_PASSWORD"
+fi
+
+if [ -n "$REDIS_MODULE" ]; then
+  DOCKER_RUN_ARGS="$DOCKER_RUN_ARGS --loadmodule $MODULE"
 fi
 
 echo "Starting single-node Redis instance: $DOCKER_RUN_ARGS"
