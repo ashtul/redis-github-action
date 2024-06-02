@@ -46,4 +46,4 @@ runs:
     - ${{ inputs.redis-password }}
     - ${{ inputs.redis-container-name }}
     - ${{ inputs.redis-remove-container }}
-    - ${{ inputs.redis-modules }}
+    - ${{ inputs.redis-module }}
